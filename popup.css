@@ -1,0 +1,9 @@
+body { width: 240px; margin: 0; padding: 12px; background: #121215; color: #e8e8ee; font: 13px "Roboto", Arial, sans-serif; }
+h1 { font-size: 15px; margin: 0 0 6px; }
+h1 span { color: #ff2d55; }
+#state { font-size: 11px; color: #7ee0a1; margin-bottom: 10px; }
+hr { border: 0; border-top: 1px solid #26262e; margin: 8px 0; }
+.row { display: flex; align-items: center; gap: 8px; padding: 3px 0; cursor: pointer; font-size: 12px; }
+input { accent-color: #ff2d55; }
+button { width: 100%; margin-top: 8px; padding: 7px; border-radius: 8px; background: #24242c; color: #eee; border: 1px solid #36363f; cursor: pointer; }
+button:hover { background: #ff2d55; border-color: #ff2d55; }

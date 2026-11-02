@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "YTPlus+",
+  "version": "3.1.0",
+  "description": "Ad blocking, maximum quality lock, smart speed, SponsorBlock, real NSFW detection, 10-band EQ, Gemini summaries, GIF comments and a full toolkit.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "declarativeNetRequest", "clipboardWrite", "unlimitedStorage"],
+  "host_permissions": [
+    "*://*.youtube.com/*",
+    "*://*.googlevideo.com/*",
+    "*://*.ytimg.com/*",
+    "https://sponsor.ajay.app/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.giphy.com/*",
+    "https://*.giphy.com/*",
+    "https://g.tenor.com/*",
+    "https://*.tenor.com/*",
+    "https://is.gd/*",
+    "https://tinyurl.com/*"
+  ],
+  "background": { "service_worker": "background.js", "type": "module" },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": [
+        "core.js",
+        "player.js",
+        "ads.js",
+        "quality.js",
+        "sponsorblock.js",
+        "audio.js",
+        "autospeed.js",
+        "nsfw.js",
+        "summarize.js",
+        "gifcomments.js",
+        "tools.js",
+        "panel.js"
+      ],
+      "css": ["panel.css"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "action": { "default_popup": "popup.html", "default_title": "YTPlus+" },
+  "options_page": "options.html",
+  "declarative_net_request": {
+    "rule_resources": [{ "id": "adblock", "enabled": true, "path": "adblock.json" }]
+  }
+}

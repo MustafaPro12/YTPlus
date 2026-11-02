@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><title>YTPlus+ Settings</title><link rel="stylesheet" href="popup.css">
+<style>
+  body { width: auto; max-width: 660px; margin: 26px auto; padding: 24px; }
+  h2 { font-size: 13px; margin: 24px 0 6px; color: #ff2d55; }
+  input[type=text], input[type=password], input[type=number], select {
+    width: 100%; padding: 7px 9px; border-radius: 8px; background: #0d0d10;
+    border: 1px solid #30303a; color: #fff; margin: 4px 0 8px;
+  }
+  .hint { font-size: 11px; color: #8b8b96; margin-bottom: 8px; }
+  #saved { color: #3ddc84; font-size: 12px; height: 16px; }
+  label.inline { display: inline-flex; gap: 6px; margin-right: 14px; font-size: 12px; }
+</style>
+</head>
+<body>
+  <h1>YTPlus<span>+</span> Settings</h1>
+
+  <h2>Gemini API</h2>
+  <div class="hint">Required for summaries. <a href="https://aistudio.google.com/apikey" target="_blank" style="color:#ff2d55">Get a key</a></div>
+  <input type="password" id="geminiKey" placeholder="AIza…">
+  <input type="text" id="geminiModel" placeholder="gemini-2.0-flash">
+
+  <h2>GIF service</h2>
+  <div class="hint">Tenor works without a key. GIPHY is used as fallback if you provide one.</div>
+  <input type="text" id="giphyKey" placeholder="GIPHY API key (optional)">
+
+  <h2>NSFW detection</h2>
+  <div class="hint">Lower = blurs more aggressively. 0.30 is balanced, 0.38 is strict.</div>
+  <input type="number" id="nsfwThreshold" step="0.01" min="0.1" max="0.8">
+
+  <h2>Smart speed</h2>
+  <input type="number" id="autoSpeedMin" step="0.05" min="0.5" max="2">
+  <input type="number" id="autoSpeedMax" step="0.05" min="1" max="4">
+  <input type="number" id="autoSpeedBase" step="0.05" min="0.5" max="2">
+  <select id="autoSpeedMode">
+    <option value="light">Light</option>
+    <option value="balanced">Balanced</option>
+    <option value="aggressive">Aggressive</option>
+  </select>
+
+  <h2>Blur strength (px)</h2>
+  <input type="number" id="musicBlurAmount" min="0" max="40">
+
+  <h2>SponsorBlock categories</h2>
+  <div id="categories"></div>
+
+  <h2>Interface</h2>
+  <label class="inline"><input type="checkbox" id="nsfwThumbs"> Blur NSFW thumbnails</label>
+  <label class="inline"><input type="checkbox" id="hideShortsShelf"> Hide Shorts shelf</label>
+  <label class="inline"><input type="checkbox" id="dimPage"> Cinema dimming</label>
+  <label class="inline"><input type="checkbox" id="debug"> Console logging</label>
+
+  <div id="saved"></div>
+  <script src="options.js"></script>
+</body>
+</html>
